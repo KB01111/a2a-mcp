@@ -1,0 +1,11 @@
+{
+    "amp.commands.allowlist": [
+        "python -m mcp_server",
+        "pip install -r requirements.txt",
+        "black mcp_server --check",
+        "black mcp_server",
+        "flake8 mcp_server --count",
+        "pytest tests/test_task_manager.py -v",
+        "docker build -t mcp-server . --no-cache"
+    ]
+}
