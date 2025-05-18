@@ -109,6 +109,30 @@ class TaskManager:
         if task_id not in self.stream_queues:
             self.stream_queues[task_id] = asyncio.Queue()
         return self.stream_queues[task_id]
+        
+    def create_send_request(self, id: str, params: Dict[str, Any]) -> SendTaskRequest:
+        """Create a SendTaskRequest object.
+        
+        Args:
+            id: Request identifier
+            params: Task parameters
+            
+        Returns:
+            SendTaskRequest object
+        """
+        return SendTaskRequest(id=id, params=params)
+        
+    def create_subscribe_request(self, id: str, params: Dict[str, Any]) -> SubscribeTaskRequest:
+        """Create a SubscribeTaskRequest object.
+        
+        Args:
+            id: Request identifier
+            params: Task parameters
+            
+        Returns:
+            SubscribeTaskRequest object
+        """
+        return SubscribeTaskRequest(id=id, params=params)
 
     def remove_stream_queue(self, task_id: str) -> None:
         """Remove a stream queue."""

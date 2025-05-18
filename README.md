@@ -8,6 +8,7 @@ A high-performance implementation of the Agent-to-Agent (A2A) protocol developed
 - Agent discovery and management via Agent Cards
 - Robust task lifecycle management
 - Cross-framework agent communication support
+- Direct Claude AI integration
 - Secure authentication and authorization
 - Containerized deployment with Kubernetes support
 
@@ -17,7 +18,7 @@ A high-performance implementation of the Agent-to-Agent (A2A) protocol developed
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/a2a-mcp.git
+git clone https://github.com/KB01111/a2a-mcp.git
 cd a2a-mcp
 
 # Set up a virtual environment
@@ -41,6 +42,22 @@ docker build -t mcp-server .
 docker run -p 8080:8080 mcp-server
 ```
 
+## Claude AI Integration
+
+This MCP server includes a dedicated endpoint for Claude AI integration. To connect Claude to this server, use:
+
+```json
+{
+  "mcp_config": {
+    "server_url": "http://localhost:8080/claude",
+    "enable_streaming": true
+  }
+}
+```
+
+See [Claude Integration Guide](docs/claude_integration.md) for detailed instructions.
+
 ## Documentation
 
-See the [A2A Protocol Repository](https://github.com/google/A2A) for more information on the A2A protocol specification.
+- [A2A Protocol Repository](https://github.com/google/A2A) - Official A2A protocol specification
+- [Claude Integration Guide](docs/claude_integration.md) - Using this MCP server with Claude
