@@ -1,10 +1,10 @@
-FROM python:3.11-slim as builder
+FROM python:3.13.5-slim as builder
 
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-FROM python:3.11-slim
+FROM python:3.13.5-slim
 WORKDIR /app
 
 # Install curl for healthcheck
